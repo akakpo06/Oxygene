@@ -20,6 +20,8 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
   // Transform values for smooth animations
   const topBarOpacity = useTransform(scrollY, [0, 50], [1, 0]);
   const topBarHeight = useTransform(scrollY, [0, 50], [44, 0]);
+  const topBarY = useTransform(scrollY, [0, 50], [0, -44]); // déplace la topbar vers le haut
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +38,7 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
     { key: 'about', href: 'about' },
     { key: 'blog', href: 'blog' },
     // { key: 'references', href: 'references' },
-    { key: 'gallery', href: 'gallery' },
+    // { key: 'gallery', href: 'gallery' },
     { key: 'careers', href: 'careers' },
     { key: 'contact', href: 'contact' },
   ];
@@ -62,7 +64,7 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
         className="text-white relative"
         style={{ 
           opacity: topBarOpacity,
-          height: topBarHeight,
+          transform: topBarY ? `translateY(${topBarY}px)` : undefined,
           overflow: 'hidden',
           background: 'linear-gradient(135deg, #13008B 0%, #2B7DCD 50%, #13008B 100%)',
           boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1), 0 1px 3px rgba(6,128,210,0.3)'
@@ -136,7 +138,7 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
               <button
                 key={item.key}
                 onClick={() => onPageChange(item.href)}
-                className={`text-sm font-medium transition-all duration-200 hover:text-primary ${
+                className={`cursor-pointer text-sm font-medium transition-all duration-200 hover:text-primary ${
                   currentPage === item.href ? 'text-primary' : 'text-gray-700'
                 }`}
               >

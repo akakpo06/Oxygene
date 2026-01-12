@@ -13,9 +13,7 @@ import { AnimatedHero } from './components/AnimatedHero';
 import { ReferencesPage } from './components/ReferencesPage';
 import { GalleryPage } from './components/GalleryPage';
 import { CareersPage } from './components/CareersPage';
-import { config } from "@fortawesome/fontawesome-svg-core"
-import "@fortawesome/fontawesome-svg-core/styles.css"
-config.autoAddCss = false
+
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -43,8 +41,8 @@ useEffect(() => {
         return <ContactPage onPageChange={setCurrentPage} />;
       // case 'references':
       //   return <ReferencesPage onPageChange={setCurrentPage} />;
-      case 'gallery':
-        return <GalleryPage onPageChange={setCurrentPage} />;
+      // case 'gallery':
+      //   return <GalleryPage onPageChange={setCurrentPage} />;
       case 'careers':
         return <CareersPage onPageChange={setCurrentPage} />;
       default:
@@ -60,7 +58,7 @@ useEffect(() => {
           {renderPage()}
         </main>
         <Footer onPageChange={setCurrentPage} />
-        <Chatbot onPageChange={setCurrentPage} />
+        {/* <Chatbot onPageChange={setCurrentPage} /> */}
       </div>
     </LanguageProvider>
   );

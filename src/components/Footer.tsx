@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Linkedin, Instagram, Goal} from 'lucide-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { byPrefixAndName } from '@awesome.me/kit-cb8c25bf88/icons'
+import Tiktok from './ui/tiktokIcon';
+
 
 interface FooterProps {
   onPageChange: (page: string) => void;
@@ -46,22 +46,15 @@ export function Footer({ onPageChange }: FooterProps) {
                 )}
                 className="h-5 w-5 text-gray-400 hover:text-white hover:scale-105 cursor-pointer transition-colors" 
               />
-              {/* <Tiktok
+              <Tiktok
                 onClick={() =>
-                          window.open(
-                            "https://www.tiktok.com/@oxygene_sarl",
-                            "_blank"
-                )}
-                className="h-5 w-5 text-gray-400 hover:text-white hover:scale-105 cursor-pointer transition-colors" 
+                  window.open(
+                    "https://www.tiktok.com/@oxygene_sarl",
+                    "_blank",
+                  )
+                }
+                className="h-20 w-20 text-gray-400 hover:text-white hover:scale-101 cursor-pointer transition-colors"
               />
-              <GOA
-                onClick={() =>
-                          window.open(
-                            "https://www.youtube.com/channel/UCV8e2xG3za7n1z8xH6G0kWg",
-                            "_blank"
-                )}
-                className="h-5 w-5 text-gray-400 hover:text-white hover:scale-105 cursor-pointer transition-colors" 
-              /> */}
             </div>
           </div>
 

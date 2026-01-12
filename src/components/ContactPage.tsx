@@ -92,9 +92,9 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
 
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12  mx-auto">
             {/* Contact Information */}
-            <div>
+            <div className="lg:max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold mb-8">Nos coordonnées</h2>
               <div className="space-y-6">
                 <Card>
@@ -152,8 +152,8 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div>
+            {/* Contact Form */} {/* Honeypot field to deter bots first input*/}
+            {/* <div>
               {isSubmitted ? (
                 <Card className="text-center p-8">
                   <CardContent className="pt-6">
@@ -177,7 +177,7 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
                   </CardHeader>
                   <CardContent>
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                      {/* Honeypot field to deter bots */}
+                      
                       <input type="text" className="hidden" {...register('_hp')} tabIndex={-1} autoComplete="off" />
                       <div>
                         <Label htmlFor="name">{t('contact.form.name')} *</Label>
@@ -246,7 +246,7 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
                   </CardContent>
                 </Card>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
