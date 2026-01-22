@@ -53,7 +53,7 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold mb-8">Nos coordonnées</h2>
+              <h2 className="text-3xl font-bold mb-8">{t('contact.info.title')}</h2>
               <div className="space-y-6">
                 <Card>
                   <CardContent className="p-6">
@@ -87,7 +87,7 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
                       <div>
                         <h3 className="font-semibold mb-2">{t('contact.email')}</h3>
                         <p className="text-gray-600">contact@oxygene-proprete.fr</p>
-                        <p className="text-sm text-gray-500">Réponse sous 2h</p>
+                        <p className="text-sm text-gray-500">{t('contact.email.responseTime')}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -100,9 +100,9 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
                       <div>
                         <h3 className="font-semibold mb-2">{t('contact.hours')}</h3>
                         <div className="text-gray-600">
-                          <p>Lundi - Vendredi: 8h00 - 18h00</p>
-                          <p>Samedi: 9h00 - 16h00</p>
-                          <p>Dimanche: Sur demande</p>
+                          {t('contact.hours.lines').split('\n').map((l, i) => (
+                            <p key={i}>{l}</p>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -117,10 +117,8 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
                 <Card className="text-center p-8">
                   <CardContent className="pt-6">
                     <CheckCircle className="h-16 w-16 text-accent mx-auto mb-6" />
-                    <h3 className="text-2xl font-bold mb-4">Message envoyé !</h3>
-                    <p className="text-gray-600 mb-6">
-                      Merci pour votre message. Notre équipe vous contactera dans les plus brefs délais.
-                    </p>
+                    <h3 className="text-2xl font-bold mb-4">{t('contact.sent.title')}</h3>
+                    <p className="text-gray-600 mb-6">{t('contact.sent.thanks')}</p>
                     <Button 
                       onClick={() => setIsSubmitted(false)}
                       className="bg-primary hover:bg-primary/90"

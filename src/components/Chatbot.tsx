@@ -33,30 +33,30 @@ export function Chatbot({ onPageChange }: ChatbotProps) {
     const message = userMessage.toLowerCase();
     
     if (message.includes('devis') || message.includes('quote') || message.includes('prix') || message.includes('price')) {
-      return "Je serais ravi de vous aider avec un devis ! Cliquez sur 'Demander un devis' pour remplir notre formulaire détaillé, ou appelez-nous au +33 1 23 45 67 89.";
+      return t('chatbot.msg.devis');
     }
     
     if (message.includes('service') || message.includes('nettoyage') || message.includes('cleaning')) {
-      return "Nous offrons une gamme complète de services : nettoyage de bureaux, commerces, bâtiments, maisons, vitres, tapis et parquet. Quel type de service vous intéresse ?";
+      return t('chatbot.msg.service');
     }
     
     if (message.includes('horaire') || message.includes('hour') || message.includes('quand') || message.includes('when')) {
-      return "Nous sommes ouverts du lundi au vendredi de 8h à 18h, le samedi de 9h à 16h, et disponibles sur demande le dimanche. Pour les urgences, nous intervenons 7j/7.";
+      return t('chatbot.msg.hours');
     }
     
     if (message.includes('contact') || message.includes('téléphone') || message.includes('phone') || message.includes('adresse')) {
-      return "Vous pouvez nous contacter au +33 1 23 45 67 89 ou par email à contact@oxygene-proprete.fr. Notre adresse : 123 Rue de la Propreté, 75001 Paris.";
+      return t('chatbot.msg.contact');
     }
     
     if (message.includes('urgence') || message.includes('emergency') || message.includes('urgent')) {
-      return "Pour les interventions urgentes, appelez-nous directement au +33 1 23 45 67 89. Nous avons une équipe d'astreinte disponible 24h/24 pour les urgences.";
+      return t('chatbot.msg.emergency');
     }
     
     if (message.includes('bonjour') || message.includes('hello') || message.includes('salut')) {
-      return "Bonjour ! Je suis là pour vous aider avec toutes vos questions sur nos services de nettoyage. Comment puis-je vous assister aujourd'hui ?";
+      return t('chatbot.msg.greeting');
     }
     
-    return "Merci pour votre question ! Pour une réponse détaillée, je vous recommande de nous contacter directement au +33 1 23 45 67 89 ou de remplir notre formulaire de contact. Notre équipe sera ravie de vous aider !";
+    return t('chatbot.msg.default');
   };
 
   const handleSendMessage = () => {
@@ -92,9 +92,9 @@ export function Chatbot({ onPageChange }: ChatbotProps) {
   };
 
   const quickActions = [
-    { text: "Demander un devis", action: () => onPageChange('contact') },
-    { text: "Voir nos services", action: () => onPageChange('services') },
-    { text: "Nous contacter", action: () => onPageChange('contact') }
+    { text: t('chatbot.quick.quote'), action: () => onPageChange('contact') },
+    { text: t('chatbot.quick.services'), action: () => onPageChange('services') },
+    { text: t('chatbot.quick.contact'), action: () => onPageChange('contact') }
   ];
 
   return (
@@ -114,7 +114,7 @@ export function Chatbot({ onPageChange }: ChatbotProps) {
           <CardHeader className="bg-primary text-white rounded-t-lg">
             <CardTitle className="flex items-center space-x-2">
               <Bot className="h-5 w-5" />
-              <span>Assistant Oxygene</span>
+              <span>{t('chatbot.title')}</span>
             </CardTitle>
           </CardHeader>
           

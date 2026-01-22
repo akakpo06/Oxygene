@@ -95,7 +95,7 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
           <div className="grid grid-cols-1 gap-12  mx-auto">
             {/* Contact Information */}
             <div className="lg:max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8">Nos coordonnées</h2>
+              <h2 className="text-3xl font-bold mb-8">{t('contact.info.title')}</h2>
               <div className="space-y-6">
                 <Card>
                   <CardContent className="p-6">
@@ -115,7 +115,7 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
                       <Phone className="h-6 w-6 text-primary mt-1" />
                       <div>
                         <h3 className="font-semibold mb-2">{t('contact.phone')}</h3>
-                        <p className="text-gray-600">+228 93252996 / +228 96130264</p>
+                        <p className="text-gray-600">{t('contact.phone.value')}</p>
                         {/* <p className="text-sm text-gray-500">Urgences 24h/24</p> */}
                       </div>
                     </div>
@@ -128,8 +128,8 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
                       <Mail className="h-6 w-6 text-primary mt-1" />
                       <div>
                         <h3 className="font-semibold mb-2">{t('contact.email')}</h3>
-                        <p className="text-gray-600">oxygenecontact@yahoo.com</p>
-                        <p className="text-sm text-gray-500">Réponse sous 24h</p>
+                        <p className="text-gray-600">{t('contact.email.value')}</p>
+                        <p className="text-sm text-gray-500">{t('contact.email.responseTime')}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -142,8 +142,9 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
                       <div>
                         <h3 className="font-semibold mb-2">{t('contact.hours')}</h3>
                         <div className="text-gray-600">
-                          <p>Lundi - Vendredi: 8h00 - 18h00</p>
-                          <p>Samedi: 9h00 - 16h00</p>
+                          {t('contact.hours.lines').split('\n').map((l, i) => (
+                            <p key={i}>{l}</p>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -254,7 +255,7 @@ export function ContactPage({ onPageChange }: ContactPageProps) {
       {/* Map Placeholder */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Notre localisation</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">{t('contact.map.title')}</h2>
           <div className="bg-gray-300 rounded-lg h-64 overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1982.8039883145827!2d1.2043970000000088!3d6.176727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102159b03d8ba009%3A0x49cb277a875520ec!2sOXYGENE%20Hygi%C3%A8ne%20et%20propret%C3%A9!5e0!3m2!1sfr!2sus!4v1758932909424!5m2!1sfr!2sus"

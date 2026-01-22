@@ -19,13 +19,13 @@ export function BlogPage({ onPageChange }: BlogPageProps) {
   const blogPosts = [
     {
       id: 1,
-      title: '5 conseils pour maintenir un bureau propre',
-      excerpt: 'Découvrez nos astuces pour garder votre espace de travail impeccable au quotidien et améliorer la productivité.',
-      fulltext: 'Découvrez nos astuces pour garder votre espace de travail impeccable au quotidien et améliorer la productivité. Un bureau propre favorise un environnement sain et agréable, propice à la concentration et à l’efficacité. Voici cinq conseils essentiels pour y parvenir : 1. Établissez une routine de nettoyage quotidienne : Prenez quelques minutes chaque jour pour ranger votre bureau, jeter les déchets et essuyer les surfaces. 2. Utilisez des produits adaptés : Choisissez des produits de nettoyage efficaces mais respectueux de l’environnement pour éviter les allergies et préserver la qualité de l’air. 3. Organisez vos fournitures : Utilisez des boîtes, des tiroirs et des organisateurs pour garder vos affaires en ordre et éviter l’encombrement. 4. Nettoyez régulièrement les équipements électroniques : Claviers, souris et écrans accumulent poussière et bactéries, pensez à les désinfecter fréquemment. 5. Impliquez toute l’équipe : Encouragez vos collègues à participer au maintien de la propreté du bureau pour créer un environnement collectif agréable.',
+      title: t('blog.post.1.title'),
+      excerpt: t('blog.post.1.excerpt'),
+      fulltext: t('blog.post.1.fulltext'),
       image: "../../assets/images/blogpost/office_lady.jpg",
-      date: '15 Nov 2024',
-      category: 'Bureaux',
-      readTime: '5 min'
+      date: t('blog.post.1.date'),
+      category: 'blog.categories.Bureaux',
+      readTime: t('blog.post.1.readTime')
     },
     // {
     //   id: 2,
@@ -39,23 +39,23 @@ export function BlogPage({ onPageChange }: BlogPageProps) {
     // },
     {
       id: 3,
-      title: 'Entretien des sols : techniques professionnelles',
-      excerpt: 'Les secrets d\'un nettoyage de sol durable et efficace selon le type de revêtement.',
-      fulltext: 'Les secrets d\'un nettoyage de sol durable et efficace selon le type de revêtement. L\'entretien des sols est une tâche essentielle pour maintenir la propreté et l\'esthétique des espaces intérieurs. Chaque type de revêtement, qu\'il s\'agisse de carrelage, de bois, de moquette ou de vinyle, nécessite des techniques spécifiques pour garantir un nettoyage optimal sans endommager la surface. Pour les sols en carrelage, l\'utilisation d\'un balai à franges humide avec un détergent doux est recommandée pour éliminer la saleté sans rayer. Les sols en bois nécessitent un soin particulier avec des produits spécialement formulés pour préserver leur finition et éviter l\'humidité excessive. La moquette, quant à elle, bénéficie d\'un nettoyage régulier à l\'aspirateur et d\'un shampooing périodique pour éliminer les taches et les allergènes. Enfin, les sols en vinyle peuvent être nettoyés efficacement avec une solution d\'eau tiède et de savon doux. En adoptant ces techniques professionnelles adaptées à chaque type de sol, il est possible de prolonger la durée de vie des revêtements tout en assurant un environnement propre et sain.',  
+      title: t('blog.post.3.title'),
+      excerpt: t('blog.post.3.excerpt'),
+      fulltext: t('blog.post.3.fulltext'),
       image: "../../assets/images/cleaning_man_machine.png",
-      date: '8 Nov 2024',
-      category: 'Techniques',
-      readTime: '6 min'
+      date: t('blog.post.3.date'),
+      category: 'blog.categories.Techniques',
+      readTime: t('blog.post.3.readTime')
     },
     {
       id: 4,
-      title: 'Nettoyage après travaux : guide complet',
-      excerpt: 'Tout ce qu\'il faut savoir pour un nettoyage efficace après des travaux de rénovation.',
-      fulltext: 'Tout ce qu\'il faut savoir pour un nettoyage efficace après des travaux de rénovation. Le nettoyage après travaux est une étape cruciale pour rendre un espace habitable et agréable après des rénovations ou des constructions. Ce processus peut être complexe en raison de la poussière, des débris et des résidus laissés par les travaux. Pour un nettoyage efficace, il est essentiel de suivre une approche méthodique. Commencez par éliminer les gros débris à l\'aide d\'une pelle et d\'un balai, puis utilisez un aspirateur industriel pour enlever la poussière fine qui s\'est déposée sur toutes les surfaces. Les fenêtres, les murs et les sols doivent être nettoyés avec des produits adaptés pour éliminer les taches de peinture, de colle ou de plâtre. N\'oubliez pas de vérifier les systèmes de ventilation et les conduits d\'air, qui peuvent également accumuler de la poussière. Enfin, un nettoyage en profondeur des sanitaires et des cuisines est nécessaire pour garantir un environnement sain. En suivant ces étapes, vous assurerez un nettoyage complet et professionnel après vos travaux.',
+      title: t('blog.post.4.title'),
+      excerpt: t('blog.post.4.excerpt'),
+      fulltext: t('blog.post.4.fulltext'),
       image: "../../assets/images/teamwork.png",
-      date: '5 Nov 2024',
-      category: 'Spécialisé',
-      readTime: '8 min'
+      date: t('blog.post.4.date'),
+      category: 'blog.categories.Spécialisé',
+      readTime: t('blog.post.4.readTime')
     },
     // {
     //   id: 5,
@@ -79,13 +79,13 @@ export function BlogPage({ onPageChange }: BlogPageProps) {
     // }
   ];
 
-  const categories = ['Tous', 'Bureaux', 'Écologie', 'Techniques', 'Spécialisé', 'Restauration', 'Santé'];
-  const [selectedCategory, setSelectedCategory] = useState('Tous');
+  const categories = ['blog.filter.all', 'blog.categories.Bureaux', 'blog.categories.Écologie', 'blog.categories.Techniques', 'blog.categories.Spécialisé', 'blog.categories.Restauration', 'blog.categories.Santé'];
+  const [selectedCategory, setSelectedCategory] = useState('blog.filter.all');
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'Tous' || post.category === selectedCategory;
+    const matchesCategory = selectedCategory === 'blog.filter.all' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -119,7 +119,7 @@ export function BlogPage({ onPageChange }: BlogPageProps) {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                 <Input
                   type="text"
-                  placeholder="Rechercher un article..."
+                  placeholder={t('blog.search.placeholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
@@ -136,7 +136,7 @@ export function BlogPage({ onPageChange }: BlogPageProps) {
                   onClick={() => setSelectedCategory(category)}
                   className={selectedCategory === category ? 'bg-primary' : ''}
                 >
-                  {category}
+                  {t(category)}
                 </Button>
               ))}
             </div>
@@ -167,7 +167,7 @@ export function BlogPage({ onPageChange }: BlogPageProps) {
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-primary text-white px-2 py-1 rounded-full text-xs font-medium">
-                        {post.category}
+                        {t(post.category)}
                       </span>
                     </div>
                   </div>
@@ -178,7 +178,7 @@ export function BlogPage({ onPageChange }: BlogPageProps) {
                         <span>{post.date}</span>
                       </div>
                       <span>•</span>
-                      <span>{post.readTime} de lecture</span>
+                      <span>{post.readTime} {t('blog.readTimeSuffix')}</span>
                     </div>
                     
                     <h3 className="text-lg font-semibold mb-3 line-clamp-2">{post.title}</h3>
@@ -196,7 +196,7 @@ export function BlogPage({ onPageChange }: BlogPageProps) {
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">Aucun article trouvé pour votre recherche.</p>
+              <p className="text-gray-500 text-lg">{t('blog.no.results')}</p>
             </div>
           )}
 

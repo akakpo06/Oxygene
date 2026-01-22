@@ -60,21 +60,16 @@ export function QuotePage() {
           <Card className="text-center p-8">
             <CardContent className="pt-6">
               <CheckCircle className="h-16 w-16 text-accent mx-auto mb-6" />
-              <h1 className="text-3xl font-bold mb-4">Demande reçue !</h1>
-              <p className="text-gray-600 mb-6">
-                Merci pour votre demande de devis. Notre équipe vous contactera dans les plus brefs délais 
-                pour discuter de vos besoins et vous proposer une solution adaptée.
-              </p>
+              <h1 className="text-3xl font-bold mb-4">{t('quote.submitted.title')}</h1>
+              <p className="text-gray-600 mb-6">{t('quote.submitted.thanks')}</p>
               <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                <p className="text-sm text-gray-600">
-                  <strong>Temps de réponse habituel :</strong> Moins de 2 heures pendant les heures ouvrables
-                </p>
+                <p className="text-sm text-gray-600">{t('quote.submitted.responseTime')}</p>
               </div>
               <Button 
                 onClick={() => setIsSubmitted(false)}
                 className="bg-primary hover:bg-primary/90"
               >
-                Faire une nouvelle demande
+                {t('quote.newRequest')}
               </Button>
             </CardContent>
           </Card>
@@ -102,7 +97,7 @@ export function QuotePage() {
             <div className="lg:col-span-2">
               <Card>
                 <CardHeader>
-                  <CardTitle>Formulaire de demande</CardTitle>
+                  <CardTitle>{t('quote.form.title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -157,7 +152,7 @@ export function QuotePage() {
                       <Label htmlFor="service">{t('quote.form.service')} *</Label>
                       <Select>
                         <SelectTrigger>
-                          <SelectValue placeholder="Sélectionnez un service" />
+                          <SelectValue placeholder={t('quote.select.service.placeholder')} />
                         </SelectTrigger>
                         <SelectContent>
                           {services.map((service) => (
@@ -174,7 +169,7 @@ export function QuotePage() {
                       <Textarea
                         id="area"
                         {...register('area', { required: 'Ce champ est obligatoire' })}
-                        placeholder="Décrivez la surface à nettoyer, le nombre de pièces, étages, etc."
+                        placeholder={t('quote.form.placeholder.area')}
                         className={errors.area ? 'border-red-500' : ''}
                       />
                       {errors.area && (
@@ -186,12 +181,12 @@ export function QuotePage() {
                       <Label htmlFor="urgency">{t('quote.form.urgency')} *</Label>
                       <Select>
                         <SelectTrigger>
-                          <SelectValue placeholder="Sélectionnez l'urgence" />
+                          <SelectValue placeholder={t('quote.select.urgency.placeholder')} />
                         </SelectTrigger>
                         <SelectContent>
                           {urgencyOptions.map((option) => (
                             <SelectItem key={option.value} value={option.value}>
-                              {option.label}
+                              {t(`quote.urgency.${option.value}`)}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -203,7 +198,7 @@ export function QuotePage() {
                       <Textarea
                         id="message"
                         {...register('message')}
-                        placeholder="Informations complémentaires, demandes spéciales, etc."
+                        placeholder={t('quote.form.placeholder.message')}
                       />
                     </div>
 
@@ -223,29 +218,29 @@ export function QuotePage() {
             <div className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Contact direct</CardTitle>
+                  <CardTitle>{t('quote.contact.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start space-x-3">
                     <Phone className="h-5 w-5 text-primary mt-0.5" />
                     <div>
-                      <p className="font-medium">Téléphone</p>
-                      <p className="text-gray-600">+33 1 23 45 67 89</p>
-                      <p className="text-sm text-gray-500">Lun-Ven: 8h-18h</p>
+                        <p className="font-medium">{t('contact.phone')}</p>
+                        <p className="text-gray-600">+33 1 23 45 67 89</p>
+                        <p className="text-sm text-gray-500">Lun-Ven: 8h-18h</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <Mail className="h-5 w-5 text-primary mt-0.5" />
                     <div>
-                      <p className="font-medium">Email</p>
-                      <p className="text-gray-600">contact@oxygene-proprete.fr</p>
+                        <p className="font-medium">{t('contact.email')}</p>
+                        <p className="text-gray-600">contact@oxygene-proprete.fr</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <MapPin className="h-5 w-5 text-primary mt-0.5" />
                     <div>
-                      <p className="font-medium">Adresse</p>
-                      <p className="text-gray-600">123 Rue de la Propreté<br />75001 Paris, France</p>
+                        <p className="font-medium">{t('contact.address')}</p>
+                        <p className="text-gray-600">123 Rue de la Propreté<br />75001 Paris, France</p>
                     </div>
                   </div>
                 </CardContent>
@@ -253,22 +248,16 @@ export function QuotePage() {
 
               <Card className="bg-primary text-white">
                 <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-3">Intervention d'urgence</h3>
-                  <p className="text-sm opacity-90 mb-4">
-                    Besoin d'une intervention immédiate ? Notre équipe d'astreinte est disponible 24h/24.
-                  </p>
-                  <Button variant="secondary" className="w-full">
-                    Appeler l'urgence
-                  </Button>
+                  <h3 className="font-semibold mb-3">{t('quote.urgent.title')}</h3>
+                  <p className="text-sm opacity-90 mb-4">{t('quote.urgent.desc')}</p>
+                  <Button variant="secondary" className="w-full">{t('quote.urgent.call')}</Button>
                 </CardContent>
               </Card>
 
               <Card className="bg-accent text-white">
                 <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-3">Devis gratuit</h3>
-                  <p className="text-sm opacity-90">
-                    Tous nos devis sont gratuits et sans engagement. Réponse sous 2h pendant les heures ouvrables.
-                  </p>
+                  <h3 className="font-semibold mb-3">{t('quote.free.title')}</h3>
+                  <p className="text-sm opacity-90">{t('quote.free.desc')}</p>
                 </CardContent>
               </Card>
             </div>

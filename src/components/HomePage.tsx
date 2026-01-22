@@ -51,78 +51,110 @@ export function HomePage({ onPageChange }: HomePageProps) {
     { 
       icon: '🏢', 
       title: t('services.offices'), 
-      description: 'Espaces de travail propres et sains'
+      description: t('home.services.desc.offices')
     },
     { 
       icon: '🏪', 
       title: t('services.commercial'), 
-      description: 'Commerces et magasins impeccables'
+      description: t('home.services.desc.commercial')
     },
     { 
       icon: '🏗️', 
       title: t('services.buildings'), 
-      description: 'Entretien complet de bâtiments'
+      description: t('home.services.desc.buildings')
     },
     { 
       icon: '🏠', 
       title: t('services.homes'), 
-      description: 'Ménage résidentiel de qualité'
+      description: t('home.services.desc.homes')
     },
     { 
       icon: '🪟', 
       title: t('services.windows'), 
-      description: 'Vitres cristallines'
+      description: t('home.services.desc.windows')
     },
     { 
       icon: '🪑', 
       title: t('services.carpet'), 
-      description: 'Tapis et moquettes comme neufs'
+      description: t('home.services.desc.carpet')
     }
   ];
 
   const clientLogos = [
-    {
-      name: 'Terminal De Containers de Lomé',
-      logo: '/assets/images/references/ref-lct.png'
+    { name: t('references.lct'),
+      logo: '/assets/images/references/ref_lct.png'
     },
-    {
-      name: 'SCAN Togo',
-      logo: '/assets/images/references/ref-sacn-togo.jpg' 
+    { name: t('references.scan'),
+      logo: '/assets/images/references/ref_scan_togo.png' 
     },
-    {
-      name: 'Cimtogo',
-      logo: '/assets/images/references/ref-cimtogo.jpg'
+    { name: t('references.cimtogo'),
+      logo: '/assets/images/references/ref_cimtogo.png'
     },
-    {
-      name: 'Cofina', 
-      logo: '/assets/images/references/ref-cofina.png'
+    { name: t('references.cofina'), 
+      logo: '/assets/images/references/ref_cofina.png'
     },
-    { name: 'Oryx Energy',
-      logo: '/assets/images/references/ref-oryx-energy.jpg'
+    { name: t('references.oryx'),
+      logo: '/assets/images/references/ref_oryx_energies.png'
     },
-    { name: 'Sunu Assurances',
-      logo: '/assets/images/references/ref-sunu.jpg'
+    { name: t('references.sunu'),
+      logo: '/assets/images/references/ref_sunu.png'
+    },
+    { name: t('references.living_ressource_centre'),
+      logo: '/assets/images/references/ref_living_ressource_centre.png'
+    },
+    { name: t('references.hotel_sarakawa'),
+      logo: '/assets/images/references/ref_hotel_sarakawa.png'
+    },
+    { name: t('references.ecobank'),
+      logo: '/assets/images/references/ref_ecobank.png'
+    },
+    { name: t('references.presidence'),
+      logo: '/assets/images/references/ref_presidence_togo.png'
+    },
+    { name: t('references.oms'),
+      logo: '/assets/images/references/ref_oms.png'
+    },
+    { name: t('references.ambassade_allemagne'),
+      logo: '/assets/images/references/ref_ambassade_allemagne.png'
+    },
+    { name: t('references.airfrance'),
+      logo: '/assets/images/references/ref_airfrance.png'
+    },
+    { name: t('references.fhi'),
+      logo: '/assets/images/references/ref_fhi360.png'
+    },
+    { name: t('references.ambassade_bresil'),
+      logo: '/assets/images/references/ref_ambassade_bresil.png'
+    },
+    { name: t('references.ambassade_gabon'),
+      logo: '/assets/images/references/ref_ambassade_gabon.png'
+    },
+    { name: t('references.africa_fund'),
+      logo: '/assets/images/references/ref_africa_fund.png'
+    },
+    { name: t('references.aige'),
+      logo: '/assets/images/references/ref_aige.png'
     }
   ];
 
   const blogPosts = [
     {
-      title: '5 conseils pour maintenir un bureau propre',
-      excerpt: 'Découvrez nos astuces pour garder votre espace de travail impeccable au quotidien.',
+      title: t('blog.post.1.title'),
+      excerpt: t('blog.post.1.excerpt'),
       image: "/assets/images/blogpost/office_lady.jpg",
-      date: '15 Nov 2024'
+      date: t('blog.post.1.date')
     },
     {
-      title: 'Entretien des sols : techniques professionnelles',
-      excerpt: 'Les secrets d\'un nettoyage de sol durable et efficace selon le type de revêtement.',
+      title: t('blog.post.3.title'),
+      excerpt: t('blog.post.3.excerpt'),
       image: "../../assets/images/cleaning_man_machine.png",
-      date: '8 Nov 2024',
+      date: t('blog.post.3.date'),
     },
     {
-      title: 'Nettoyage après travaux : guide complet',
-      excerpt: 'Tout ce qu\'il faut savoir pour un nettoyage efficace après des travaux de rénovation.',
+      title: t('blog.post.4.title'),
+      excerpt: t('blog.post.4.excerpt'),
       image: "../../assets/images/teamwork.png",
-      date: '5 Nov 2024',
+      date: t('blog.post.4.date'),
     },
   ];
 
@@ -322,25 +354,97 @@ export function HomePage({ onPageChange }: HomePageProps) {
         </div>
       </section>
 
-      {/* Client Logos */}
-      <section className="py-16">
+      {/* Client Logos - Continuous Scroll Carousel */}
+      <section className="py-16 bg-gradient-to-r from-slate-50 to-slate-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">{t('home.clients.title')}</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {clientLogos.map((client, index) => (
-              <div key={index} className="text-center p-4  hover:grayscale-0 transition-all group">
-                <div className="border-0 rounded-lg h-32 flex items-center justify-center flex-col-reverse mb-4">
-                  <ImageWithFallback
-                  src={client.logo}
-                  alt={client.name}
-                  className="w-full object-cover"
-                />
+          
+          {/* Scrolling Container */}
+          <div className="relative overflow-hidden">
+            <style>{`
+              @keyframes scroll {
+                0% {
+                  transform: translateX(0);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+              
+              .carousel-scroll {
+                display: flex;
+                align-items: center;
+                width: max-content;
+                animation: scroll 60s linear infinite;
+                gap: 2rem;
+              }
+              
+              .carousel-scroll:hover {
+                animation-play-state: paused;
+              }
+              
+              .carousel-item {
+                flex: 0 0 calc(100vw / 6);
+              }
+
+              /* Tablette */
+              @media (max-width: 1024px) {
+                .carousel-item {
+                  flex: 0 0 calc(100vw / 3);
+                }
+              }
+
+              /* Mobile */
+              @media (max-width: 640px) {
+                .carousel-item {
+                  flex: 0 0 100vw;
+                }
+              }
+                .logo-card {
+                height: 8rem; /* 128px */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            `}</style>
+            
+            <div className="carousel-scroll">
+              {/* First set of logos */}
+              {clientLogos.map((client, index) => (
+                <div key={`scroll-1-${index}`} className="carousel-item text-center p-4 hover:grayscale-0 transition-all group">
+                  <div className="border-0 rounded-lg h-32 flex items-center justify-center flex-col-reverse mb-4 bg-white p-2 shadow-sm hover:shadow-md transition-shadow">
+                    <ImageWithFallback
+                      src={client.logo}
+                      alt={client.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <span className="font-bold text-sm text-black group-hover:text-primary transition-colors">{client.name}</span>
+                  </div>
                 </div>
-                <div>
-                  <span className="font-bold text-black group-hover:text-primary">{client.name}</span>
+              ))}
+              
+              {/* Duplicate set for seamless loop */}
+              {clientLogos.map((client, index) => (
+                <div key={`scroll-2-${index}`} className="carousel-item text-center p-4 hover:grayscale-0 transition-all group">
+                  <div className="border-0 rounded-lg h-32 flex items-center justify-center flex-col-reverse mb-4 bg-white p-2 shadow-sm hover:shadow-md transition-shadow">
+                    <ImageWithFallback
+                      src={client.logo}
+                      alt={client.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <span className="font-bold text-sm text-black group-hover:text-primary transition-colors">{client.name}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            
+            {/* Gradient overlays for smooth edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-slate-50 to-transparent pointer-events-none z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-100 to-transparent pointer-events-none z-10"></div>
           </div>
         </div>
       </section>

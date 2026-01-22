@@ -43,15 +43,15 @@ export function AboutPage({ onPageChange }: AboutPageProps) {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Award className="h-6 w-6 text-primary" />
-                  <span>Fondée en 2008</span>
+                  <span>{t('about.stats.founded')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Users className="h-6 w-6 text-primary" />
-                  <span>Plus de 500 clients satisfaits</span>
+                  <span>{t('about.stats.clients')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Heart className="h-6 w-6 text-accent" />
-                  <span>15+ années d'expérience</span>
+                  <span>{t('about.stats.years')}</span>
                 </div>
               </div>
             </div>
@@ -129,22 +129,22 @@ export function AboutPage({ onPageChange }: AboutPageProps) {
                 <div className="flex items-start space-x-3">
                   <Leaf className="h-6 w-6 text-accent mt-0.5" />
                   <div>
-                    <h3 className="font-semibold">Produits écologiques</h3>
-                    <p className="text-gray-600">100% de nos produits sont certifiés éco-responsables</p>
+                    <h3 className="font-semibold">{t('about.csr.products.title')}</h3>
+                    <p className="text-gray-600">{t('about.csr.products.desc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Heart className="h-6 w-6 text-accent mt-0.5" />
                   <div>
-                    <h3 className="font-semibold">Actions solidaires</h3>
-                    <p className="text-gray-600">Partenariats avec des associations locales</p>
+                    <h3 className="font-semibold">{t('about.csr.actions.title')}</h3>
+                    <p className="text-gray-600">{t('about.csr.actions.desc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Award className="h-6 w-6 text-accent mt-0.5" />
                   <div>
-                    <h3 className="font-semibold">Certifications</h3>
-                    <p className="text-gray-600">ISO 14001 et labels environnementaux</p>
+                    <h3 className="font-semibold">{t('about.csr.certifications.title')}</h3>
+                    <p className="text-gray-600">{t('about.csr.certifications.desc')}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from './ui/button';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Menu, X, Phone, Mail, Languages } from 'lucide-react';
-import oxygeneLogoImg from '../../public/assets/logo_oxygene.png';
+import oxygeneLogoImg from '/assets/logo_oxygene.png';
 
 interface HeaderProps {
   currentPage: string;
@@ -64,7 +64,7 @@ export function Header({ currentPage, onPageChange }: HeaderProps) {
         className="text-white relative"
         style={{ 
           opacity: topBarOpacity,
-          transform: topBarY ? `translateY(${topBarY}px)` : undefined,
+          height: topBarHeight,
           overflow: 'hidden',
           background: 'linear-gradient(135deg, #13008B 0%, #2B7DCD 50%, #13008B 100%)',
           boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1), 0 1px 3px rgba(6,128,210,0.3)'

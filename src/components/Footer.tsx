@@ -56,11 +56,13 @@ export function Footer({ onPageChange }: FooterProps) {
                 className="h-20 w-20 text-gray-400 hover:text-white hover:scale-101 cursor-pointer transition-colors"
               />
             </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">{t('footer.companyName')}</h3>
+            </div>
           </div>
-
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Navigation</h4>
+            <h4 className="font-semibold mb-4">{t('footer.navigation')}</h4>
             <ul className="space-y-2">
               <li>
                 <button 
@@ -157,39 +159,27 @@ export function Footer({ onPageChange }: FooterProps) {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary" />
-                <a
-                  href="tel:0022893252996"
-                  className="text-gray-300 hover:text-white cursor-pointer transition-colors"
-                >
-                  +228 93252996 / 
-                </a>
-                <a
-                  href="tel:0022896130264"
-                  className="text-gray-300 hover:text-white cursor-pointer transition-colors"
-                >
-                  +228 96130264
-                </a>
+                <div>
+                  <p className="text-gray-300 hover:text-white cursor-pointer transition-colors">{t('contact.phone.value')}</p>
+                </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary" />
-                  <a
-                  href="mailto:oxygenecontact@yahoo.com"
-                  className="text-gray-300 hover:text-white cursor-pointer transition-colors"
-                >
-                  oxygenecontact@yahoo.com
-                </a>
+                <div>
+                  <a href={`mailto:${t('contact.email.value')}`} className="text-gray-300 hover:text-white cursor-pointer transition-colors">{t('contact.email.value')}</a>
+                </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Clock className="h-5 w-5 text-primary mt-0.5" />
                 <div className="text-gray-300">
-                  <p>Lun - Ven: 8h00 - 18h00</p>
-                  <p>Sam: 9h00 - 16h00</p>
+                  {t('contact.hours.lines').split('\n').map((l, i) => (
+                    <p key={i}>{l}</p>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
             © 2025 Oxygene Hygiène et Propreté. Tous droits réservés.
